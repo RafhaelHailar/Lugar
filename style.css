@@ -1,0 +1,217 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: radial-gradient(transparent 20%,rgba(0,0,0,0.4) 80%), url("https://upload.wikimedia.org/wikipedia/commons/c/cd/Boracay_White_Beach.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+    font-family: Arial ,sans-serif;
+    overflow: hidden;
+}
+
+.white-btn {
+    background: white;
+    color: gray;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.main {
+    padding: 1rem 2rem;
+}
+
+button, a {
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer
+}
+
+ul {
+    display: flex;
+    gap: 5rem;
+    padding: 0;
+}
+
+li {
+   list-style: none;
+}
+
+#navbar, .links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.links {
+    gap: 10rem;
+}
+
+.links div:last-child {
+    display: flex;
+    gap: 5rem;
+}
+
+
+.links div:last-child button {
+    font-size: 1.1rem;
+    font-weight: 600;
+ }
+
+#section {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.line-indicator {
+    width: 1.5px;
+    height: 40vh;
+    background: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 8rem;
+    padding-top: 5rem;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.line-indicator > div {
+    transform: scale(0.5);
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-indicator > div::before {
+    content: attr(data-index);
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform-origin: center;
+}
+
+.line-indicator > div:hover {
+    transform: scale(1);
+}
+
+.texts h1 {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.texts p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 20px rgba(0,0,0, 0.7);
+}
+
+.texts button {
+    font-size: 1.5rem;
+    padding: 0.7rem 2rem;
+    background: #24BAEC;
+    margin-top: 3rem;
+ }
+
+.gallery {
+    position: relative;
+    display: flex;
+    width: 50vw;
+    flex: 1;
+}
+
+.gallery > div {
+}
+
+.gallery .controls {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    bottom: -6rem;
+}
+
+.gallery .controls button{
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255,255,255, 0.4);
+    color: rgba(255,255,255, 0.9);
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper { 
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: 1s;
+    height: 25rem;
+}
+
+.card {
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 1s;
+}
+
+.card .starred {
+    margin: .4rem 0;
+    font-size: 0.8rem;
+}
+
+.card .card-body {
+    width: 17rem;
+    height: 20rem;
+    overflow: hidden;
+    transition: 1s;
+    position: relative;
+    border-radius: 10px;
+}
+
+.card.active .card-body {
+    height: 25rem;
+}
+
+.card:hover .card-body {
+    height: 25rem;
+}
+
+.card .card-body button {
+    width: 2.5rem;
+    padding: 1.3rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
