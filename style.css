@@ -5,9 +5,6 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: radial-gradient(transparent 20%,rgba(0,0,0,0.4) 80%), url("https://upload.wikimedia.org/wikipedia/commons/c/cd/Boracay_White_Beach.png");
-    background-position: center;
-    background-size: cover;
     color: white;
     font-family: Arial ,sans-serif;
     overflow: hidden;
@@ -27,6 +24,37 @@ body {
 
 .main {
     padding: 1rem 2rem;
+}
+
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.backdrop::after, .backdrop .filler{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(transparent 20%,rgba(0,0,0,0.4) 80%);
+}
+
+.backdrop .filler {
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: 500ms;
+}
+
+.backdrop img{
+    width: 100%; 
+    transition: 1s;
 }
 
 button, a {
@@ -127,11 +155,16 @@ li {
     background: rgba(0,0,0,0.2);
     padding: 2rem 1rem;
     margin-left: 2rem;
+    flex: 1;
 }
 
 .texts h1 {
     font-size: 5rem;
     margin: 0;
+}
+
+.texts h1:hover div {
+    transform: translateY(-5.8rem);
 }
 
 .texts p {

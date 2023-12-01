@@ -9,8 +9,11 @@
 </head>
 <body>
     
-
     <div class="main">
+        <div class="backdrop">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Boracay_White_Beach.png" />
+            <div class="filler"></div>
+        </div>
         <!-- Navigation Bar -->
         <div id="navbar">
             <div class="logo">
@@ -57,7 +60,7 @@
             </div>
             <!-- Line Indicator End -->
             <div class="texts">
-                <h1>AKLAN</h1>
+                <h1>AKLAN </h1>
                 <p>Aklan, officially the Province of Aklan, is a province in the Western Visayas region of the Philippines. Its capital is Kalibo. The province is situated in the northwest portion of Panay Island, bordering Antique to the southwest, and Capiz to the southeast.</p>
                 <button>Explore <i class="fa-solid fa-arrow-right"></i></button>
             </div>
@@ -78,21 +81,7 @@
                                 <img height="100%" src="https://lp-cms-production.imgix.net/2023-05/shutterstock_editorial_1741828760.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200" /> 
                             </div>
                         </div>
-                        <div class="card">
-                            <div>Bolol</div>
-                            <div class="starred">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="card-body">
-                                <button class="white-btn"><i class="fa-solid fa-bookmark"></i></button>
-                                <img height="100%" src="https://lp-cms-production.imgix.net/2023-05/shutterstock_editorial_1741828760.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200" /> 
-                            </div>
-                        </div>
-                        <div class="card">
+                                                <div class="card">
                             <div>Budol</div>
                             <div class="starred">
                                 <i class="fa-solid fa-star"></i>
@@ -123,10 +112,10 @@
                    </div>
                 </div>
                 <div class="controls">
-                    <button onclick="move(-1)">
+                    <button onclick="move(1)">
                         <i class="fa-solid fa-less-than"></i>
                     </button>
-                    <button onclick="move(1)">
+                    <button onclick="move(-1)">
                         <i class="fa-solid fa-greater-than"></i>
                     </button>
                </div>
