@@ -187,6 +187,8 @@ window.addEventListener("DOMContentLoaded", function() {
     ready = true;
     const loader = $("#loader");
     loader.style.opacity = 0;
+    //after 2seconds of fading remove its display;
+    setTimeout(() => loader.style.display = "none",2000);
 });
 
 window.onload = function() {
