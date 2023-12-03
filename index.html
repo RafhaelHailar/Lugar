@@ -66,61 +66,41 @@
             </div>
             <div class="gallery">
                 <div>
-                    <div class="wrapper">
-                        <div class="card active">
-                            <div>Bohol</div>
-                            <div class="starred">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="card-body">
-                                <button class="white-btn"><i class="fa-solid fa-bookmark"></i></button>
-                                <img height="100%" src="https://lp-cms-production.imgix.net/2023-05/shutterstock_editorial_1741828760.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200" /> 
-                            </div>
-                        </div>
-                                                <div class="card">
-                            <div>Budol</div>
-                            <div class="starred">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="card-body">
-                                <button class="white-btn"><i class="fa-solid fa-bookmark"></i></button>
-                                <img height="100%" src="https://lp-cms-production.imgix.net/2023-05/shutterstock_editorial_1741828760.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200" /> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div>Bolbol</div>
-                            <div class="starred">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="card-body">
-                                <button class="white-btn"><i class="fa-solid fa-bookmark"></i></button>
-                                <img height="100%" src="https://lp-cms-production.imgix.net/2023-05/shutterstock_editorial_1741828760.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1200" /> 
-                            </div>
-                        </div>
-                   </div>
+                    <div class="wrapper"></div>
                 </div>
                 <div class="controls">
-                    <button onclick="move(1)">
+                    <!-- PASSING THE BUTTONS TO THE FUNCTION FOR BUTTON ANIMATION -->
+                    <button onclick="move(1,this)">
                         <i class="fa-solid fa-less-than"></i>
                     </button>
-                    <button onclick="move(-1)">
+                    <button onclick="move(-1,this)">
                         <i class="fa-solid fa-greater-than"></i>
                     </button>
                </div>
             </div>
-        </div>
+         </div>
+         <div class="two-indicators">
+             <div>
+                 <div class="number-indicator-container">
+                     <div>
+                         <div class="number-indicator">
+                             01
+                         </div>
+                         <div>
+                             / 04
+                         </div>
+                     </div>
+                 </div>
+                 <div class="name-indicator">
+                    BOHOL
+                 </div>
+             </div>
+             <div class="something">
+                 <div>01</div>
+                 <div class="line"></div>
+                 <div>09</div>
+             </div>
+         </div>
         <!-- Main Content End -->
     </div>
 

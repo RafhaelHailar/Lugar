@@ -35,8 +35,13 @@ let index = 0;
 const mooks = {};
 
 let available = true;
-function move(by) {
+function move(by,button) {
     if (!available) return;
+
+    /* BUTTON ANIMATION */
+    // 300 milli second animation
+    button.classList.add("clicked");
+    setTimeout(() => button.classList.remove("clicked"),300);
 
     index += by;
     if (index < 0) index = data.length - 1;
@@ -121,11 +126,18 @@ function displayData() {
     
     swapActive(activeIndicator,indicators[index]);
 
-    console.log(index);
     const {name,description,backdrop} = data[index];
     mooks.title.update(name);
     mooks.description.update(description);
+    mooks.numberIndicator.update(String(index + 1).padStart(2,"0"));
     
+    // next title
+    (() => {
+        let nextIndex = index + 1;
+        nextIndex = nextIndex % data.length;// limiting the next index to the length of data so whenever next index === data.length , next index will be back to 0
+        const {name} = data[nextIndex];
+        mooks.nameIndicator.update(name);
+    })(); 
     changeBackdrop(backdrop);
 } 
 
@@ -173,9 +185,13 @@ function swapActive(active,element) {
 window.onload = function() {
     const title = $(".texts h1");
     const description = $(".texts p");
+    const numberIndicator = $(".number-indicator");
+    const nameIndicator = $(".name-indicator");
 
     mooks.title = mookPan(title);
     mooks.description = mookPan(description);
+    mooks.numberIndicator = mookPan(numberIndicator);
+    mooks.nameIndicator = mookPan(nameIndicator);
 
     const wrapper = $(".gallery .wrapper");
     let cardHTMLs = ``; 
@@ -234,6 +250,7 @@ function mookPan(element) {
    const container = $_("div",{},
    {
         display: "flex",
+        justifyContent: "center",
         flexDirection: "column"
    });
     
@@ -298,7 +315,6 @@ window.$_ = function (tagName,attr,styles) {
 window.$_$ = function (parent,child,end = true) {
     if (end) parent.appendChild(child);
     else parent.prepend(child);
-
     return { 
         _: $_$
     }
@@ -306,9 +322,7 @@ window.$_$ = function (parent,child,end = true) {
 
 //for styling
 window.$$ = function (element,styles) {
-    console.log(element);
     for (let s in styles) {
-        console.log(s,element.styles);
         element.styles[s] = styles[s];
     }
 }
