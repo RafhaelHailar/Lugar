@@ -32,6 +32,7 @@ const data = [
 ];
 
 let index = 0;
+let ready = false;
 const mooks = {};
 
 let available = true;
@@ -182,6 +183,12 @@ function swapActive(active,element) {
     element.classList.add("active");
 }
 
+window.addEventListener("DOMContentLoaded", function() {
+    ready = true;
+    const loader = $("#loader");
+    loader.style.opacity = 0;
+});
+
 window.onload = function() {
     const title = $(".texts h1");
     const description = $(".texts p");
@@ -216,7 +223,56 @@ window.onload = function() {
         cardHTMLs += cardHTML;
     }
     wrapper.innerHTML = cardHTMLs;
+
+    // loader generating wings
+    const loader = $("#loader");
+    const totalWings = 8;
+    const wingsContainer = $("#loader .logo-container");
+    for (let i = 1;i <= totalWings;i++) {
+        let div = $_("div",{
+            class: "wings",
+            style: `--i:${i}`
+        });
+
+        let img = $_("img", {
+            src: "./assets/wings.png"
+        });
+
+        $_$(div,img)
+        ._(wingsContainer,div);
+
+     }
+     showWings();
 } 
+
+function showWings() {
+    const loaderWings = $("#loader .wings img",true);
+    const duration = 2000; // 2s each wings
+    const totalDuration = duration * 4; // duration * total wings - duration for starting before the last wing start animating
+    for (let i = 0;i < loaderWings.length;i++) {
+        const img = loaderWings[i];
+        setTimeout(() => {
+          img.classList.add("show");  
+        },1000 * i);
+    }
+    
+    setTimeout(() => hideWings(),totalDuration);
+}
+
+function hideWings() {
+    const loaderWings = $("#loader .wings img",true);
+    const duration = 2000; // 2s each wings
+    const totalDuration = duration * 4; // duration * total wings
+    for (let i = 0;i < loaderWings.length;i++) {
+        const img = loaderWings[i];
+        setTimeout(() => {
+          img.classList.remove("show");  
+        },1000 * i);
+    }
+    
+    setTimeout(() => showWings(),totalDuration);
+}
+
 
 // mook pan some random name that came up in my mind
 /*
