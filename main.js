@@ -139,28 +139,24 @@ function displayData() {
         const {name} = data[nextIndex];
         mooks.nameIndicator.update(name);
     })(); 
-    changeBackdrop(backdrop);
+    changeBackdrop();
 } 
 
 function changeBackdrop(backdrop) {
-    const backdropContainer = $(".backdrop");
-
-    const nextBackdropImg = $_("img",
-      {
-        src: backdrop
-      },
-      {
-        opacity: "0.5"
-      });
-
-    $_$(backdropContainer,nextBackdropImg);
-    
-    const prevBackdropImg = $(".backdrop img",false,
+    // get the img in backdrop container that is visible(the previous backdrop img) then reduce its opacity,
+    // then get the next backdrop img and show it in half opacity, then after the animations of filler ends,
+    // remove the previous back drop img and make the next backdrop image to be more visible.
+    const prevBackDropImg = $(`.backdrop img:not(.hide)`,false,
     {
-        transition: "1s",
         opacity: "0.5"
     });
+
+    const nextBackDropImg = $(`.backdrop img:nth-of-type(${index + 1})`,false,{
+        opacity: "0.5"
+    });
+    nextBackDropImg.classList.remove("hide");
     
+        
     const filler = $(".backdrop .filler",false,
     {
         opacity: "1"
@@ -169,8 +165,8 @@ function changeBackdrop(backdrop) {
     setTimeout(() => {
         filler.style.opacity = "0";
         setTimeout(() => {
-             prevBackdropImg.remove();
-            nextBackdropImg.style.opacity = "1";
+           prevBackDropImg.classList.add("hide"); 
+           nextBackDropImg.style.opacity = "1";
         });
     },500);
     
@@ -183,7 +179,7 @@ function swapActive(active,element) {
     element.classList.add("active");
 }
 
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     ready = true;
     const loader = $("#loader");
     loader.style.opacity = 0;
@@ -191,7 +187,9 @@ window.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => loader.style.display = "none",2000);
 });
 
-window.onload = function() {
+
+// what I learn today(dec. 3, 2023), the domcontentloaded runs when the HTML content finish loading, while the load runs when the HTML document and its resources such as img, video and etc.
+window.addEventListener("DOMContentLoaded",function() {
     const title = $(".texts h1");
     const description = $(".texts p");
     const numberIndicator = $(".number-indicator");
@@ -245,7 +243,20 @@ window.onload = function() {
 
      }
      showWings();
-} 
+    
+    //add images to our backdrop
+    const backdrop = $(".main .backdrop");
+    
+    for (let i = 0;i < data.length;i++) {
+        const img = $_("img", {
+            src: data[i].backdrop,
+            class: `${i > 0 ? "hide" : ""}`
+        });
+
+        $_$(backdrop,img);
+    }
+
+});
 
 function showWings() {
     const loaderWings = $("#loader .wings img",true);
