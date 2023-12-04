@@ -235,7 +235,7 @@ window.addEventListener("DOMContentLoaded",function() {
         });
 
         let img = $_("img", {
-            src: "./assets/wings.png"
+            src: "./assets/Wings.png"
         });
 
         $_$(div,img)
